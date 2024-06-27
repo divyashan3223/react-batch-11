@@ -1,1 +1,9 @@
-
+.one {
+  background-color: blue;
+  color: white;
+}
+.red {
+  background-color: red;
+  border: none;
+  color: white;
+}
