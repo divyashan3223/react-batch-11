@@ -1,30 +1,20 @@
-import React from "react";
-import Signin from "./Signin";
-import Signup from "./Signup";
+const Data = () => {
+  let data = [
+    { title: "apple", id: 1, info: "false" },
+    { title: "orange", id: 2, info: "false" },
+    { title: "mango", id: 3, info: "true" },
+  ];
+  let hi = data.map((dat) => (
+    <li key={dat.id} style={{ color: dat.info === "true" ? "blue" : "yellow" }}>
+      {dat.title}
+    </li>
+  ));
 
-// ! using if else method
-// const Data = ({ isLoggin }) => {
-//   let content;
-//   if (isLoggin) {
-//     content = <Signin />;
-//   } else {
-//     content = <Signup />;
-//   }
-//   return <div>{content}</div>;
-// };
-// export default Data;
-
-// TODO using ternary operator
-// const Data = ({ isLoggin }) => {
-//   const content = isLoggin ? <Signin /> : <Signup />;
-//   return <div>{content}</div>;
-// };
-// export default Data;
-
-// ?using  && operator
-
-const Data = ({ isLoggin }) => {
-  const content = isLoggin && <Signin />;
-  return <div>{content}</div>;
+  return (
+    <div>
+      <ul>{hi}</ul>
+    </div>
+  );
 };
+
 export default Data;
