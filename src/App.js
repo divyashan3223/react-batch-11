@@ -1,19 +1,14 @@
 import "./App.css";
+import Data from "./components/Data";
 import Button from "./components/button/classComponent/button/Button";
 
-function App() {
-  const handleClick = () => {
-    alert("data was cancled");
-  };
-  const data = () => {
-    alert("data was submitted+b");
-  };
+const App = () => {
   return (
     <div className="App">
-      <Button Click={handleClick} content={"cancel"} />
-      <Button Click={data} content={"submited"} />
+      {/* <Button content={"submited"} /> */}
+      <Data isLoggin={false} />
     </div>
   );
-}
+};
 
 export default App;
