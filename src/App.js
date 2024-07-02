@@ -5,8 +5,8 @@ import Button from "./components/button/classComponent/button/Button";
 const App = () => {
   return (
     <div className="App">
-      {/* <Button content={"submited"} /> */}
-      <Data isLoggin={false} />
+      <Button />
+      {/* <Data isLoggin={false} /> */}
     </div>
   );
 };
