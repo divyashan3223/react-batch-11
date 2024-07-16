@@ -3,14 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>object</title>
+    <title>Document</title>
+    <style>
+      .container {
+        border: 1px solid black;
+        height: 90vh;
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: 1fr 1fr 2fr;
+        /* row-gap: 10px;
+        column-gap: 10px; */
+        gap: 10px 30px;
+      }
+      .container div {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <script>
-      let person ="";
-      let data = person.lastIndexOf("divi")
+     const p = new Promise((res, rej) => {
+  res(1);
+});
 
-      console.log(data);
+async function asyncReturn() {
+  return p;
+}
+
+function basicReturn() {
+  return Promise.resolve(p);
+}
+
+console.log(p === basicReturn()); // true
+console.log(p === asyncReturn()); // false
     </script>
   </body>
 </html>
