@@ -1,47 +1,44 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 export const UseMemo = () => {
   const [count, setCount] = useState(0);
-  const [todo, setTodo] = useState([]);
-  const data = useMemo(() => {
-    expensiveCalculation(count);
+  const [todos, setTodos] = useState([]);
+  let calculation = useMemo(() => {
+    simpleCalculation(count);
   }, [count]);
-  const handletodo = () => {
-    setTodo((prevState) => [...prevState, "divi"]);
-  };
-  const handleIncrement = () => {
+  function increment() {
     setCount((precount) => precount + 1);
+  }
+  const addtodo = () => {
+    setTodos((prevState) => [...prevState, "new todo"]);
   };
   return (
     <div>
-      <h1>add yourname</h1>
-      {todo.map((a, index) => {
-        return <p key={index}>{a}</p>;
+      <h1>Add todods</h1>
+      {todos.map((todo, index) => {
+        return <p key={index}>{todo}</p>;
       })}
-      <button onClick={handletodo}>add name</button>
+      <button onClick={addtodo}>add datas</button>
       <hr />
       <hr />
-      <h1>counting values:</h1>
-      <p>count:{count}</p>
-      <button onClick={handleIncrement}>+</button>
-      <hr />
-      <h1>expensiveCalculation </h1>
-      {data}
+      <h1>count:{count}</h1>
+      <button onClick={increment}>add count</button>
+      <h1>simple calculation</h1>
+      {calculation}
     </div>
   );
 };
-
 const expensiveCalculation = (num) => {
-  console.log("calculating");
-  for (let i = 0; i < 10000000000; i++) {
+  console.log("Calculating.....");
+  for (let i = 0; i < 100000; i++) {
     num += 1;
+    return num;
   }
-  return num;
 };
 const simpleCalculation = (num) => {
-  console.log("simple one");
+  console.log("the singple function");
   for (let i = 0; i < 10; i++) {
     num += 1;
+    return num;
   }
-  return num;
 };
