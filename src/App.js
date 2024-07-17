@@ -1,16 +1,12 @@
 import "./App.css";
 import Data from "./components/Data";
-import ProductList from "./components/UseCallback";
-import UseCallback from "./components/UseCallback";
-import ParentComponent, { UseMemo } from "./components/UseMemo";
-import Memo from "./components/UseMemo";
-import Button from "./components/button/classComponent/button/Button";
-import Home from "./components/callback/Home";
+
+import UseContext from "./components/UseContext/UseContext";
 
 const App = () => {
   return (
     <div className="App">
-   <Home/>
+      <UseContext />
     </div>
   );
 };
