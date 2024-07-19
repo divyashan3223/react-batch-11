@@ -1,12 +1,13 @@
 import "./App.css";
-import Data from "./components/Data";
-
-import UseContext from "./components/UseContext/UseContext";
+import Customhook from "./components/customhook/Customhook";
+import Post from "./components/customhook/Post";
+// import Data from "./components/Data";
 
 const App = () => {
   return (
     <div className="App">
-      <UseContext />
+      <Customhook />
+      {/* <Post /> */}
     </div>
   );
 };

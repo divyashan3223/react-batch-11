@@ -5,37 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .container {
+      div {
+        height: 30px;
+        width: 30px;
         border: 1px solid black;
-        height: 90vh;
-        display: grid;
-        grid-template-columns: repeat(3, 50px);
-        grid-template-rows: 1fr 1fr 2fr;
-        /* row-gap: 10px;
-        column-gap: 10px; */
-        gap: 10px 30px;
+        animation-name: change;
+        position: relative;
+        animation-duration: 5s;
+        animation-iteration-count: 2;
+        /* animation-direction: ; */
       }
-      .container div {
-        border: 1px solid black;
+      @keyframes change {
+        0% {
+          top: 0px;
+          left: 0px;
+          width: 30px;
+        }
+        25% {
+          left: 200px;
+          top: 0px;
+        width: 60px;
+    
+        }
+        50% {
+          left: 200px;
+          top: 200px;
+          width: 30px;
+          height: 60px;
+     
+        }
+        75% {
+          left: 0px;
+          top: 200px;
+        }
+        100% {
+          top: 0px;
+          left: 0px;
+        }
       }
     </style>
   </head>
   <body>
-    <script>
-     const p = new Promise((res, rej) => {
-  res(1);
-});
-
-async function asyncReturn() {
-  return p;
-}
-
-function basicReturn() {
-  return Promise.resolve(p);
-}
-
-console.log(p === basicReturn()); // true
-console.log(p === asyncReturn()); // false
-    </script>
+    <div></div>
   </body>
 </html>
