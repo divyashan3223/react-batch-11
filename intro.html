@@ -24,15 +24,13 @@
         25% {
           left: 200px;
           top: 0px;
-        width: 60px;
-    
+          width: 60px;
         }
         50% {
           left: 200px;
           top: 200px;
           width: 30px;
           height: 60px;
-     
         }
         75% {
           left: 0px;
@@ -46,6 +44,11 @@
     </style>
   </head>
   <body>
-    <div></div>
+    <!-- <div></div> -->
+    <script>
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((data) => data.map((elememnt) => console.log(elememnt.name)));
+    </script>
   </body>
 </html>
