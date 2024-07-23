@@ -1,41 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const CrudOperations = () => {
   const [items, setItems] = useState([]);
-  const [item, setItem] = useState('');
+  const [item, setItem] = useState("");
   const [editingItem, setEditingItem] = useState(null);
   const [error, setError] = useState(null);
 
- 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then(response => setItems(response.data))
-      .catch(error => setError(error));
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => setItems(response.data.slice(0, 10)))
+      .catch((error) => setError(error));
   }, []);
 
   // Create new item
   const createItem = () => {
-    axios.post('https://jsonplaceholder.typicode.com/posts', { title: item, body: item })
-      .then(response => setItems([...items, response.data]))
-      .catch(error => setError(error));
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", {
+        title: item,
+        body: item,
+      })
+      .then((response) => setItems([...items, response.data]))
+      .catch((error) => setError(error));
   };
 
   // Update an existing item
   const updateItem = (id) => {
-    axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, { title: item, body: item })
-      .then(response => {
-        setItems(items.map(i => (i.id === id ? response.data : i)));
+    axios
+      .put(`https://jsonplaceholder.typicode.com/users/${id}`, {
+        title: item,
+        body: item,
+      })
+      .then((response) => {
+        setItems(items.map((i) => (i.id === id ? response.data : i)));
         setEditingItem(null);
       })
-      .catch(error => setError(error));
+      .catch((error) => setError(error));
   };
 
   // Delete an item
   const deleteItem = (id) => {
-    axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then(() => setItems(items.filter(i => i.id !== id)))
-      .catch(error => setError(error));
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(() => setItems(items.filter((i) => i.id !== id)))
+      .catch((error) => setError(error));
   };
 
   // Handle form submit
@@ -46,7 +55,7 @@ const CrudOperations = () => {
     } else {
       createItem();
     }
-    setItem('');
+    setItem("");
   };
 
   // Handle edit click
@@ -60,17 +69,17 @@ const CrudOperations = () => {
       <h1>CRUD Operations with Axios</h1>
       {error && <div>Error: {error.message}</div>}
       <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          value={item} 
-          onChange={(e) => setItem(e.target.value)} 
-          placeholder="Enter item" 
-          required 
+        <input
+          type="text"
+          value={item}
+          onChange={(e) => setItem(e.target.value)}
+          placeholder="Enter item"
+          required
         />
-        <button type="submit">{editingItem ? 'Update' : 'Create'}</button>
+        <button type="submit">{editingItem ? "Update" : "Create"}</button>
       </form>
       <ul>
-        {items.map(i => (
+        {items.map((i) => (
           <li key={i.id}>
             {i.title}
             <button onClick={() => handleEdit(i)}>Edit</button>

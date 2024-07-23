@@ -8,8 +8,8 @@ import CrudAxios from "./CrudAxios";
 const App = () => {
   return (
     <div className="App">
-      {/* <CrudOperations /> */}
-      <CrudAxios />
+      <CrudOperations />
+      {/* <CrudAxios /> */}
     </div>
   );
 };
